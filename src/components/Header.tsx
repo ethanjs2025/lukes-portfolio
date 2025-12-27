@@ -1,63 +1,39 @@
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import ThemeToggle from './ui/ThemeToggle'
+
+const getNavLinkClass = (isActive: boolean) => {
+  return `relative hover:text-gray-600 dark:hover:text-gray-400 transition pb-1 ${
+    isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
+  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-gray-900 dark:after:bg-gray-100 after:transition-all after:duration-300 after:ease-out`
+}
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Left: Name */}
-          <div className="flex-1">
-            <Link to="/" className="text-xl font-bold hover:text-blue-600 dark:hover:text-blue-400 transition">
+    <header className="sticky top-0 py-8 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ">
+      <div className="px-6 sm:px-12 lg:px-20 xl:px-28">
+        <div className="flex justify-between items-center h-16 gap-8">
+          <div className="flex-shrink-0">
+            <Link to="/" className="text-xl font-bold hover:text-gray-600 dark:hover:text-gray-400 transition">
               Luke Smith
             </Link>
           </div>
           
-          {/* Center: Navigation */}
           <nav className="flex-1 flex justify-center items-center gap-8">
-            <Link 
-              to="/" 
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
-            >
+            <NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}>
               Home
-            </Link>
-            <Link 
-              to="/gallery" 
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
-            >
+            </NavLink>
+            <NavLink to="/gallery" className={({ isActive }) => getNavLinkClass(isActive)}>
               Gallery
-            </Link>
-            <Link 
-              to="/resume" 
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
-            >
+            </NavLink>
+            <NavLink to="/resume" className={({ isActive }) => getNavLinkClass(isActive)}>
               Resume
-            </Link>
-            <Link 
-              to="/contact" 
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
-            >
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => getNavLinkClass(isActive)}>
               Contact
-            </Link>
+            </NavLink>
           </nav>
           
-          {/* Right: LinkedIn + Theme toggle */}
-          <div className="flex-1 flex justify-end items-center gap-4">
-            <a 
-              href="https://google.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
-              aria-label="LinkedIn"
-            >
-              <svg 
-                className="w-6 h-6" 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
+          <div className="flex-shrink-0 flex items-center gap-4">
             <ThemeToggle />
           </div>
         </div>
@@ -65,4 +41,3 @@ export default function Header() {
     </header>
   )
 }
-
