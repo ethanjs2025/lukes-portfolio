@@ -9,7 +9,7 @@ const getNavLinkClass = (isActive: boolean) => {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 py-8 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ">
+    <header className="top-0 py-8 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ">
       <div className="px-6 sm:px-12 lg:px-20 xl:px-28">
         <div className="flex justify-between items-center h-16 gap-8">
           <div className="flex-shrink-0">
