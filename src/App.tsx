@@ -9,7 +9,7 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
           <Header />
           <main>

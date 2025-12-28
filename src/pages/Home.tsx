@@ -1,7 +1,7 @@
 const artworks = [
-  { id: 1, title: 'Bird', image: '/artwork/BIRD.png' },
-  { id: 2, title: 'Box', image: '/artwork/BOX.png' },
-  { id: 3, title: 'Centipede', image: '/artwork/centipede.png' },
+  { id: 1, title: 'Bird', image: `${import.meta.env.BASE_URL}artwork/BIRD.png` },
+  { id: 2, title: 'Box', image: `${import.meta.env.BASE_URL}artwork/BOX.png` },
+  { id: 3, title: 'Centipede', image: `${import.meta.env.BASE_URL}artwork/centipede.png` },
 ]
 
 export default function Home() {

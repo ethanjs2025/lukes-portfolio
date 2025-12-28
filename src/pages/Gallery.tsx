@@ -14,7 +14,7 @@ const artworkFiles = [
 
 const artworks = artworkFiles.map((filename, index) => ({
   id: index + 1,
-  image: `/artwork/${filename}`,
+  image: `${import.meta.env.BASE_URL}artwork/${filename}`,
 }))
 
 export default function Gallery() {
